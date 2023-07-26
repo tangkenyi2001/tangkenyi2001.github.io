@@ -7,12 +7,20 @@
     height: 100vh;
     width: 100%;
 }
+.logo{
+    border-radius: 50%;
+    max-width: 130px;
+    max-height: 130px;
+}
 .navbar{
     display: flex;
     justify-content:space-around;
     flex-basis: 50px;
     gap: 3rem;
     width: 100%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    align-items: center;
 }
 .navbar>div{
     color: #0c0f0a;
@@ -20,13 +28,11 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     padding: 15px;
-    
 }
 .intro{
     display: flex;
     width:100%; 
-    height: 80vh;
-    padding-top: 5vh;  
+    height: 80vh;  
     padding-bottom: 5px;
 }
 .intro > div{
@@ -50,7 +56,7 @@
 }
 .introhomepage{
     color: #0c0f0a;
-    font-size: 10rem;
+    font-size: 8rem;
     text-align: right;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;   
