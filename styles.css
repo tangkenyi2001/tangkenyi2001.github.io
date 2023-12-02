@@ -31,9 +31,10 @@
     height:15vh;
     align-items: center;
     min-height: 95px;
+    background-color: black;
 }
 .navbarbuttons{
-    color: #0c0f0a;
+    color: #e8e8e8;
     font-size:1.5rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
@@ -126,9 +127,10 @@
         justify-content: flex-end;
         font-family: 'Montserrat', sans-serif;
         min-height:50px;
+        background-color: black;
     }
     .menu-button{
-        background-color: #e8e8e8;
+        background-color: black;
         outline: none;
         box-shadow: none;
         text-decoration: none;
@@ -141,6 +143,7 @@
         align-items: center;
         justify-content: center;
         min-height:50px;
+        color:#e8e8e8;
         
     }
 
@@ -154,7 +157,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: #CCCCCC;
+        background-color: black;
     }
     .mobile>div{
         font-size: 20px;
@@ -237,7 +240,10 @@
     height: 95vh;
     font-family: 'Montserrat', sans-serif;
     font-size: 2rem;
-    width: 100%;
+    max-width: 100%;
+    padding-left: 15%;
+    padding-right: 15%;
+    
 }
 .educationmsg> ul{
     width: 80%;
@@ -257,12 +263,30 @@
     max-height: 100%;
 }
 .homepagemsg{
-    max-width: 100%;
-    padding-left: 10%;
-    padding-right: 10%;
+    max-width: 80%;
+    padding-left: 15%;
+    padding-right: 15%;
     font-family: 'Montserrat', sans-serif;
     align-self: center;
     font-size:2rem;
+}
+.workmsg{
+  display: flex;
+  flex-direction: column;
+  height: 95vh;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  padding-bottom: 10px;
+  max-width: 100%;
+  padding-left: 10%;
+  padding-right: 10%;
+  
+  
+}
+.workmsg>ol{
+  width: 100%;
 }
 @media screen and (max-width: 1023px){
     .aboutmemsg{
@@ -275,26 +299,18 @@
     }
     
     .homepagemsg{
-        width: 80%;
+        width: 100%;
         height: auto;
         max-height: 95vh; 
-}
+        font-size: 0.75em;
+    
+    }
+    .workmsg{
+      font-size: 1em;
+    }
 }
 
-.workmsg{
-    display: flex;
-    flex-direction: column;
-    height: 95vh;
-    justify-content: flex-start;
-    align-items: center;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2rem;
-    padding-bottom: 10px;
-    
-}
-.workmsg>ol{
-    width: 80%;
-}
+
 .projectlink{
     text-decoration: none;
 }
@@ -371,7 +387,7 @@
     margin-right: 0px;
     margin-bottom: 0px;
     margin-left: 0px;
-    background-color: #d2b48c;
+    background-color: #e8e8e8;
   }
   
   .contact_us .container-block.form-wrapper {
@@ -477,7 +493,7 @@
   
   .contact_us .submit-btn {
     width: auto;
-    background-color: #d2b48c;
+    background-color: black;
     height: 58px;
     font-size: 20px;
     font-weight: 600;
@@ -549,7 +565,7 @@
     font-size: 36px;
     line-height: 50px;
     font-weight: 700;
-    color: white;
+    color: black;
     margin-top: 0px;
     margin-right: 0px;
     margin-bottom: 15px;
@@ -560,7 +576,7 @@
     max-width: 670px;
     font-size: 20px;
     line-height: 27px;
-    color: white;
+    color: black;
   }
   
   @media (max-width: 1024px) {
