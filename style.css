@@ -245,6 +245,7 @@ font-weight: 600;
 }
 .about-containers{
     gap:2rem;
+    margin: 2rem;
 }
 
 .about-details-container{
@@ -324,3 +325,4 @@ font-weight: 600;
     justify-content: center;
     max-height: max-content;
 }
+

@@ -1,9 +1,135 @@
+@media screen and (max-width: 1400px){
+    #profile{
+        height: 83vh;
+        margin-bottom: 6rem;
+    }
+    .about-container{
+        flex-wrap:wrap;
+    }
+}
+
+
+
+
 @media screen and (max-width: 1200px){
     #desktop-nav{
         display: none;
     }
     #hamburger-nav{
         display: flex;
+    }
+    #experience,.experience-details-container{
+        margin-top: 2rem;
+    }
+    #profile,.section-container{
+        display: block;
+    }
+    section,.section-container{
+        height: fit-content;
+    }
+    section{
+        margin: 0 5%;
+    }
+    .section_pic-container{
+        width: 275px;
+        height:275px;
+        margin: 0 auto 2rem;
+
+    }
+    .about-container{
+        margin-top: 0;
+    }
+    .btn-container{
+        justify-content: center;
+    }
+    .section_pic-container{
+        margin-top: 4rem;
+    }
+    .about-details-container{
+        width: fit-content;
+    }
+    .text-container{
+        margin: 1rem;
+    }
+    .detail-containers h2{
+        font-size: 17px;
+    }
+    .article-container h3{
+        font-size: 15px;
+    }
+    .article-container p{
+        font-size: 14px;
+    }
+
+}
+@media (min-width: 800px) and (max-width: 1100px) {
+    html {
+        font-size: 150.5%; /* This makes the base font size 18px (16px * 1.125) */
+    }
+    .section_text p{
+        font-size: 2rem;
+    }
+    .btn-container button{
+        font-size: 0.9rem;
+    }
+    .detail-containers h2{
+        font-size: 22px;
+    }
+    .article-container h3{
+        font-size: 18px;
+    }
+    .article-container p{
+        font-size: 17px;
+    }
+    .btn-color-1{
+        font-size: 0.8rem;
+    }
+    
+}
+
+
+@media screen and (max-width: 600px){
+    #profile{
+        height: 83vh;
+        
+    }
+    .btn-container{
+        justify-content: center;
+    }
+    .section_pic-container{
+        margin-top: 2rem;
+    }
+    article{
+        font-size: 1rem;
+    }
+    .btn-container{
+        flex-wrap:wrap;
+    }
+
+    #about{
+        margin-top: 0rem;
+    }
+    .about-details-container{
+        display: flex;
+        max-width: fit-content;
+        margin-top: 5rem;
+
+    }
+    .text-container{
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    .about-containers{
+        display: flex;
+        justify-items: center;
+        
+        
+    }
+    .experience-details-container{
+        flex-direction: column;
+    }
+    .about-containers{
+        flex-direction: column;
     }
 }
     
