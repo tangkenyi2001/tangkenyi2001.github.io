@@ -8,6 +8,7 @@
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
+    "build:model": "gltf-transform optimize static/ken-v1.glb static/ken-v2.glb --compress draco",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
@@ -30,6 +31,8 @@
     "@docusaurus/module-type-aliases": "3.9.2",
     "@docusaurus/tsconfig": "3.9.2",
     "@docusaurus/types": "3.9.2",
+    "@gltf-transform/cli": "^4.3.0",
+    "@gltf-transform/extensions": "^4.3.0",
     "typescript": "~5.6.2"
   },
   "browserslist": {
