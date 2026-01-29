@@ -10,31 +10,27 @@ function Sun({ position = [0, 100, -200], radius = 16 }) {
   );
 }
 
+import { Points, PointMaterial } from '@react-three/drei';
+
 // Helper component for procedural starfield
-function Starfield({ count = 500, radius = 200 }) {
-  const points = React.useMemo(() => {
-    const arr = [];
+function Starfield({ count = 5000, radius = 300 }) {
+  const positions = React.useMemo(() => {
+    const arr = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
       const theta = Math.random() * 2 * Math.PI;
       const phi = Math.acos(2 * Math.random() - 1);
       const r = radius * (0.8 + 0.2 * Math.random());
-      arr.push([
-        r * Math.sin(phi) * Math.cos(theta),
-        r * Math.sin(phi) * Math.sin(theta),
-        r * Math.cos(phi),
-      ]);
+      arr[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+      arr[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+      arr[i * 3 + 2] = r * Math.cos(phi);
     }
     return arr;
   }, [count, radius]);
+
   return (
-    <group>
-      {points.map(([x, y, z], i) => (
-        <mesh key={i} position={[x, y, z]}>
-          <sphereGeometry args={[0.5, 4, 4]} />
-          <meshBasicMaterial color="white" />
-        </mesh>
-      ))}
-    </group>
+    <Points positions={positions}>
+      <PointMaterial transparent color="white" size={1.5} sizeAttenuation={true} depthWrite={false} />
+    </Points>
   );
 }
 
@@ -130,99 +126,35 @@ export default function MBSScene() {
       />
       {isDarkMode ? (
         <>
-          {/* Night: colored lights around the figure for a vibrant look */}
+          {/* Simplified and optimized lighting for dark mode */}
           <spotLight
-            position={[0, 8, 8]}
-            angle={0.4}
-            penumbra={0.9}
-            intensity={18}
-            color={0xbbeeff}
+            position={[0, 10, 5]}
+            angle={0.5}
+            penumbra={1}
+            intensity={30}
+            color={0x4a90e2}
             castShadow
-            target-position={[0, 0, 0]}
           />
-          {/* Strong white light from above to illuminate the center */}
           <pointLight
-            position={[0, 8, 0]}
-            intensity={20}
-            color={0xffffff}
+            position={[-8, 2, 4]}
+            intensity={25}
+            color={0xff66cc}
           />
-          {/* Strong white light from below to fill the figure */}
           <pointLight
-            position={[0, -8, 0]}
-            intensity={14}
-            color={0xffffff}
+            position={[8, 2, 4]}
+            intensity={25}
+            color={0x66e0ff}
           />
-          {/* Warm fill from below */}
           <pointLight
-            position={[0, -2, 2]}
-            intensity={20}
-            color={0xffbb99}
-          />
-          {/* Rim blue light from behind */}
-          <pointLight
-            position={[0, 3, -8]}
+            position={[0, 4, -8]}
             intensity={20}
             color={0x3366ff}
           />
-          {/* Left magenta */}
+          {/* Add a frontal light to illuminate the character */}
           <pointLight
-            position={[-6, 2, 2]}
-            intensity={20}
-            color={0xff66cc}
-          />
-          {/* Right cyan */}
-          <pointLight
-            position={[6, 2, 2]}
-            intensity={20}
-            color={0x66e0ff}
-          />
-          {/* Front white (towards camera) - reduced intensity */}
-          <pointLight
-            position={[0, 2, 12]}
-            intensity={20}
+            position={[0, 3, 8]}
+            intensity={100}
             color={0xffffff}
-          />
-          {/* Back white */}
-          <pointLight
-            position={[0, 2, -12]}
-            intensity={20}
-            color={0xffffff}
-          />
-          {/* Diagonal front-left */}
-          <pointLight
-            position={[-8, 4, 8]}
-            intensity={20}
-            color={0xffeedd}
-          />
-          {/* Diagonal front-right */}
-          <pointLight
-            position={[8, 4, 8]}
-            intensity={20}
-            color={0xddffee}
-          />
-          {/* Diagonal front-left */}
-          <pointLight
-            position={[0, 10, 8]}
-            intensity={20}
-            color={0xffeedd}
-          />
-          {/* Diagonal front-right */}
-          <pointLight
-            position={[0, 4, 8]}
-            intensity={20}
-            color={0xddffee}
-          />
-          {/* Diagonal back-left */}
-          <pointLight
-            position={[-8, 4, -8]}
-            intensity={20}
-            color={0xddeeff}
-          />
-          {/* Diagonal back-right */}
-          <pointLight
-            position={[8, 4, -8]}
-            intensity={20}
-            color={0xffeedd}
           />
         </>
       ) : (
@@ -232,7 +164,7 @@ export default function MBSScene() {
         </>
       )}
       {/* Starfield and moon only in dark mode */}
-      {isDarkMode && <Starfield count={600} radius={300} />}
+      {isDarkMode && <Starfield />}
       {isDarkMode && <Moon position={[60, 60, -120]} radius={10} />}
       {/* Sun only in day mode */}
       {!isDarkMode && <Sun position={[0, 100, -200]} radius={16} />}
