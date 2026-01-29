@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Ken',
-  tagline: 'Lifelong Learning',
+  tagline: 'My World',
   favicon: 'img/terminal.svg',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -18,7 +18,7 @@ const config: Config = {
   url: 'https://tangkenyi2001.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/tangkenyi2001.github.io/',
+  baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
