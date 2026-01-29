@@ -8,7 +8,7 @@
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
 
-    "build:model": "gltf-transform optimize static/ken-v1.glb static/ken-v2.glb --compress draco",
+    "build:model": "gltf-transform optimize static/mbs.glb static/ken-v2.glb --compress draco",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",

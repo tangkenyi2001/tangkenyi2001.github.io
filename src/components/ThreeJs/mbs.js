@@ -55,7 +55,7 @@ export default function MBSScene() {
     return null;
   }
 
-  const gltf = useLoader(GLTFLoader, '/ken-v2.glb', loader => {
+  const gltf = useLoader(GLTFLoader, './mbs.glb', loader => {
     const dracoLoader = new DRACOLoader();
     dracoLoader.setDecoderPath('/draco/');
     loader.setDRACOLoader(dracoLoader);
