@@ -69,8 +69,11 @@ export default function MBSScene() {
   const isDarkMode = colorMode === 'dark';
 
   useEffect(() => {
-    // Play all animations
-    Object.values(actions).forEach(action => action.play());
+    // Play all animations at half speed
+    Object.values(actions).forEach(action => {
+      action.timeScale = 0.5;
+      action.play();
+    });
     return () => {
       // Stop all animations on unmount
       Object.values(actions).forEach(action => action.stop());
