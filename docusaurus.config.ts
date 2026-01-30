@@ -93,6 +93,11 @@ const config: Config = {
           label: 'GitHub',
           position: 'right',
         },
+        {
+          href: 'https://www.linkedin.com/in/tang-ken-yi-05629421a/',
+          label: 'LinkedIn',
+          position: 'right',
+        },
       ],
     },
     footer: {
