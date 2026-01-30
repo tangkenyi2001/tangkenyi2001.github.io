@@ -10,7 +10,7 @@ function Sun({ position = [0, 100, -200], radius = 16 }) {
   );
 }
 
-import { Points, PointMaterial } from '@react-three/drei';
+import { Points, PointMaterial, Text, Text3D, Center } from '@react-three/drei';
 
 // Helper component for procedural starfield
 function Starfield({ count = 5000, radius = 300 }) {
@@ -51,6 +51,17 @@ import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 import * as THREE from 'three';
 
 export default function MBSScene() {
+  // Random messages for the character
+  const messages = [
+    "Hello Explorer!",
+    "Keep learning every day!",
+    "Breaking prod... I mean, shipping features!",
+    "git push origin main --force",
+    "Pushing to prod on a Friday!",
+    "But it worked on localhost...",
+  ];
+  // Pick a random message on mount
+  const [message] = React.useState(() => messages[Math.floor(Math.random() * messages.length)]);
   if (!ExecutionEnvironment.canUseDOM) {
     return null;
   }
@@ -89,13 +100,13 @@ export default function MBSScene() {
     dirLightIntensity = 0.04;
     envIntensity = 0.01;
     skyProps = {
-      distance: 450000,
-      sunPosition: [0, 1, -10],
+      distance: 400,
+      sunPosition: [0, 0, 0],
       turbidity: 15,
       rayleigh: 0.1,
       mieCoefficient: 0.02,
       mieDirectionalG: 0.99,
-      inclination: 0.6, // lower sun for night
+      inclination: 0, // lower sun for night
       azimuth: 0.25,
       exposure: 0.05,
     };
@@ -172,9 +183,35 @@ export default function MBSScene() {
       {/* Sun only in day mode */}
       {!isDarkMode && <Sun position={[0, 100, -200]} radius={16} />}
       <Sky {...skyProps} />
-      <Environment preset={isDarkMode ? "night" : "city"} intensity={envIntensity} />
+      <Environment preset={isDarkMode ? "forest" : "city"} intensity={envIntensity} />
       <group position={[0, -4, 0]}>
+        {/* Character model */}
         <primitive object={gltf.scene} scale={6} />
+        {/* Text above character */}
+        {/* <Text
+          position={[0, 10, 0]} // adjust Y to be above character
+          fontSize={1.2}
+          color={isDarkMode ? '#fff' : '#222'}
+          anchorX="center"
+          anchorY="bottom"
+          font="/fonts/BungeeShade_Regular.json"
+          // fallback to Html overlay if you want more CSS control
+        > */}
+        <Center position={[0, 10.5, 0]}>
+          <Text
+            position={[0, 10, 0]} // adjust Y to be above character
+            fontSize={1.2}
+            color={isDarkMode ? '#fff' : '#222'}
+            anchorX="center"
+            anchorY="bottom"
+            font="/fonts/Monofett-Regular.ttf"
+          // fallback to Html overlay if you want more CSS control
+          >
+            {message}
+          </Text>
+        </Center>
+        {/* {message}
+        </Text> */}
       </group>
     </>
   );
