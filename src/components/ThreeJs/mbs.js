@@ -125,7 +125,7 @@ export default function MBSScene() {
         position={isDarkMode ? [0, 2, -8] : [5, 5, 5]}
         intensity={dirLightIntensity}
         color={isDarkMode ? 0xffa070 : 0xffffff}
-        castShadow
+        castShadow={!isDarkMode}
       />
       {isDarkMode ? (
         <>
@@ -167,7 +167,7 @@ export default function MBSScene() {
         </>
       )}
       {/* Starfield and moon only in dark mode */}
-      {isDarkMode && <Starfield />}
+      {isDarkMode && <Starfield count={4000} />}
       {isDarkMode && <Moon position={[60, 60, -120]} radius={10} />}
       {/* Sun only in day mode */}
       {!isDarkMode && <Sun position={[0, 100, -200]} radius={16} />}
