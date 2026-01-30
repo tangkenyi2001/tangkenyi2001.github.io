@@ -14,8 +14,8 @@ const FeatureList: FeatureItem[] = [
   {
     title: 'About Me',
     Svg: () => (
-      <div style={{ borderRadius: '50%', padding: 30, display: 'inline-block' }}>
-        <img src={require('@site/static/img/kenprofile.jpg').default} alt="Ken Profile" style={{ borderRadius: '50%', width: 148, height: 148, objectFit: 'cover' }} />
+      <div style={{ borderRadius: '50%', display: 'inline-block' }}>
+        <img src={require('@site/static/img/kenprofile.jpg').default} alt="Ken Profile" style={{ borderRadius: '50%', width: 200, height: 200, objectFit: 'cover' }} />
       </div>
     ),
     description: (
@@ -46,8 +46,8 @@ const FeatureList: FeatureItem[] = [
   {
     title: 'Continuous Improvement',
     Svg: () => (
-      <div style={{ background: '#fff', borderRadius: '50%', padding: 30, display: 'inline-block' }}>
-        <img src="/img/performance-increase-svgrepo-com.svg" alt="Continuous Improvement" style={{ width: 148, height: 148, objectFit: 'cover', display: 'block' }} />
+      <div style={{ background: '#fff', borderRadius: '50%', display: 'inline-block',width: 200, height: 200, padding: 30, boxSizing: 'border-box'  }}>
+        <img src="/img/undraw_stepping-up_i0i7.svg" alt="Continuous Improvement" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}/>
       </div>
     ),
     description: (
@@ -60,13 +60,13 @@ const FeatureList: FeatureItem[] = [
     title: 'AI & Software Engineering',
     Svg: () => (
       
-      <div style={{ background: '#fff', borderRadius: '50%', padding: 30, display: 'inline-block' }}>
-        <img src="/img/code-svgrepo-com.svg" alt="AI & Software Engineering" style={{ width: 148, height: 148, objectFit: 'cover', display: 'block' }} />
+      <div style={{ background: '#fff', borderRadius: '50%', display: 'inline-block', width: 200, height: 200, padding: 30, boxSizing: 'border-box' }}>
+        <img src="/img/undraw_code-review_jdgp.svg" alt="AI & Software Engineering" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
       </div>
     ),
     description: (
       <>
-        I’m especially interested in the intersection of <strong>AI and Software Engineering</strong>, with a focus on integrating AI into <strong>distributed, production-scale systems</strong>. Through internships at large tech companies, I’ve gained hands-on experience building and operating real-world systems, and I’m eager to deepen my understanding of deploying reliable, scalable AI in production environments.
+        I’m interested in deploying reliable, scalable AI within distributed, production-scale systems, and I bring about hands-on experience from internships at large tech companies.
       </>
     ),
 
