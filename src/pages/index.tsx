@@ -10,11 +10,15 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import MBSScene from '@site/src/components/ThreeJs/mbs';
 import Loader from '@site/src/components/ThreeJs/Loader';
-import React, { Suspense } from 'react';
+import React, { Suspense,useMemo } from 'react';
 import * as THREE from 'three';
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
+  const isMobile = useMemo(
+    () => window.matchMedia('(max-width: 768px)').matches,
+    []
+  );
   return (
     <div style={{ height: '500px', width: '100%' }}>
       <Canvas
@@ -22,7 +26,7 @@ function HomepageHeader() {
           outputColorSpace: THREE.SRGBColorSpace,
           toneMapping: THREE.ACESFilmicToneMapping,
         }}
-        camera={{ position: [0, 0, 20], fov: 60 }}
+        camera={{ position: isMobile?[0, 0, 30]:[0, 0, 20], fov: 60 }}
       >
         <OrbitControls maxPolarAngle={Math.PI / 2} minDistance={8} maxDistance={32} />
         <Suspense fallback={<Loader />}>
