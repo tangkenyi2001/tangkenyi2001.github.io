@@ -15,10 +15,20 @@ import * as THREE from 'three';
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
-  const isMobile = useMemo(
-    () => window.matchMedia('(max-width: 768px)').matches,
-    []
-  );
+  // Detect if on mobile (client-side only)
+  const [isMobile, setIsMobile] = React.useState(false);
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Camera props with explicit tuple typing
+  const cameraProps = isMobile
+    ? { position: [0, 0, 32] as [number, number, number], fov: 70 }
+    : { position: [0, 0, 20] as [number, number, number], fov: 60 };
+
   return (
     <div style={{ height: '500px', width: '100%' }}>
       <Canvas
@@ -26,7 +36,7 @@ function HomepageHeader() {
           outputColorSpace: THREE.SRGBColorSpace,
           toneMapping: THREE.ACESFilmicToneMapping,
         }}
-        camera={{ position: isMobile?[0, 0, 30]:[0, 0, 20], fov: 60 }}
+        camera={cameraProps}
       >
         <OrbitControls maxPolarAngle={Math.PI / 2} minDistance={8} maxDistance={32} />
         <Suspense fallback={<Loader />}>
