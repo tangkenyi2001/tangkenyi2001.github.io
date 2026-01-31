@@ -10,17 +10,32 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import MBSScene from '@site/src/components/ThreeJs/mbs';
 import Loader from '@site/src/components/ThreeJs/Loader';
-import React, { Suspense,useMemo } from 'react';
+import React, { Suspense, useMemo } from 'react';
 import * as THREE from 'three';
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   // Detect if on mobile (client-side only)
   const [isMobile, setIsMobile] = React.useState(false);
+  const [webglSupported, setWebglSupported] = React.useState(true);
+
   React.useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
     window.addEventListener('resize', checkMobile);
+    // WebGL support check
+    function isWebGLAvailable() {
+      try {
+        const canvas = document.createElement('canvas');
+        return !!(
+          window.WebGLRenderingContext &&
+          (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+        );
+      } catch (e) {
+        return false;
+      }
+    }
+    setWebglSupported(isWebGLAvailable());
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
@@ -28,6 +43,19 @@ function HomepageHeader() {
   const cameraProps = isMobile
     ? { position: [0, 0, 32] as [number, number, number], fov: 70 }
     : { position: [0, 0, 20] as [number, number, number], fov: 60 };
+
+  if (!webglSupported) {
+    return (
+      <div style={{ height: '500px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#222', color: '#fff', borderRadius: 12, textAlign: 'center', flexDirection: 'column' }}>
+        <h2 style={{ marginBottom: 16 }}>Welcome to my world!</h2>
+        <p style={{ maxWidth: 400 }}>
+          This experience requires WebGL and hardware acceleration.
+          Please enable them in your browser settings to view the 3D animation.
+        </p>
+
+      </div>
+    );
+  }
 
   return (
     <div style={{ height: '500px', width: '100%' }}>
