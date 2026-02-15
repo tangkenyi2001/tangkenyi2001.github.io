@@ -42,34 +42,6 @@ const FeatureList: FeatureItem[] = [
         `}</style>
       </>
     ),
-  },
-  {
-    title: 'Continuous Improvement',
-    Svg: () => (
-      <div style={{ background: '#fff', borderRadius: '50%', display: 'inline-block',width: 200, height: 200, padding: 30, boxSizing: 'border-box'  }}>
-        <img src="/img/undraw_stepping-up_i0i7.svg" alt="Continuous Improvement" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}/>
-      </div>
-    ),
-    description: (
-      <>
-        This is a space where I document my studies, reflect on what I’ve learned, and continuously refine both my understanding and the systems I build. All blogs will be written without AI.
-      </>
-    ),
-  },
-  {
-    title: 'AI & Software Engineering',
-    Svg: () => (
-      
-      <div style={{ background: '#fff', borderRadius: '50%', display: 'inline-block', width: 200, height: 200, padding: 30, boxSizing: 'border-box' }}>
-        <img src="/img/undraw_code-review_jdgp.svg" alt="AI & Software Engineering" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
-      </div>
-    ),
-    description: (
-      <>
-        I’m interested in deploying reliable, scalable AI within distributed, production-scale systems, and I bring about hands-on experience from internships at large tech companies.
-      </>
-    ),
-
   }
 ];
 

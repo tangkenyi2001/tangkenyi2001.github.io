@@ -44,18 +44,54 @@ function HomepageHeader() {
     ? { position: [0, 0, 32] as [number, number, number], fov: 70 }
     : { position: [0, 0, 20] as [number, number, number], fov: 60 };
 
-  if (!webglSupported) {
-    return (
-      <div style={{ height: '500px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#222', color: '#fff', borderRadius: 12, textAlign: 'center', flexDirection: 'column' }}>
-        <h2 style={{ marginBottom: 16 }}>Welcome to my world!</h2>
-        <p style={{ maxWidth: 400 }}>
-          This experience requires WebGL and hardware acceleration.
-          Please enable them in your browser settings to view the 3D animation.
-        </p>
+  // if (!webglSupported) {
+  //   return (
+  //     <div style={{ height: '500px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#222', color: '#fff', borderRadius: 12, textAlign: 'center', flexDirection: 'column' }}>
+  //       <h2 style={{ marginBottom: 16 }}>Welcome to my world!</h2>
+  //       <p style={{ maxWidth: 400 }}>
+  //         This experience requires WebGL and hardware acceleration.
+  //         Please enable them in your browser settings to view the 3D animation.
+  //       </p>
 
+  //     </div>
+  //   );
+  // }
+  if (!webglSupported) {
+  return (
+    <div style={{ 
+      height: '500px', 
+      width: '100%', 
+      borderRadius: 12,
+      overflow: 'hidden',
+      position: 'relative'
+    }}>
+      <img 
+        src="/img/threejs-fallback.png" 
+        alt="3D Scene Preview" 
+        style={{ 
+          width: '100%', 
+          height: '100%', 
+          objectFit: 'cover'
+        }} 
+      />
+      <div style={{
+        position: 'absolute',
+        bottom: 20,
+        left: 20,
+        right: 20,
+        background: 'rgba(0, 0, 0, 0.8)',
+        padding: '16px',
+        borderRadius: 8,
+        color: '#fff',
+        textAlign: 'center'
+      }}>
+        <p style={{ margin: 0, fontSize: '14px' }}>
+          Enable WebGL to view the interactive 3D animation
+        </p>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
   return (
     <div style={{ height: '500px', width: '100%' }}>
@@ -80,11 +116,11 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      >
       <HomepageHeader />
-      <main>
+      {/* <main>
         <HomepageFeatures />
-      </main>
+      </main> */}
     </Layout>
   );
 }
