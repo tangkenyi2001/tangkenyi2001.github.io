@@ -7,7 +7,7 @@ vLLM is widely recognized for its state-of-the-art serving throughput, largely d
 
 Despite these optimizations, the standard vLLM architecture incurs high "cold-start" latency. This latency is negligible for static deployments but becomes a major hindrance in dynamic serving scenarios.
 
-This project, conducted as my Final Year Project at NTU, re-engineers the vLLM worker-controller architecture. My goal was to reduce cold start latency in large language model inference.
+This project, conducted as my Final Year Project at NTU, re-engineers the vLLM worker-controller architecture. My goal was to reduce cold start latency in large language model inference. You can view the repository [here.](https://github.com/tangkenyi2001/vllm/tree/ken/WorkerController/vllm/worker_controller)
 
 ## Current Implementation
 ![Current vLLM implmentation](/img/docs/portfolio-website/worker-controller/api_layer.png)
